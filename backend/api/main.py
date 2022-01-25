@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 import psycopg2
-from venue import Venue
-from category import Category
+from api.models import Venue, Category
+
 
 app = Flask(__name__)
 
@@ -23,4 +23,3 @@ def show_venue(id):
     venue_values = cursor.fetchone()
     return jsonify(Venue(venue_values).__dict__)
 
-app.run(debug = True)
